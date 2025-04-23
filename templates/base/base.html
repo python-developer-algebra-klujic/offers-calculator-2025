@@ -369,10 +369,11 @@
                   {% block page_heading %}
                   {% endblock page_heading %}
 
-                  {% block content %}
                   <!-- Content Row -->
-                  <div class="row"></div>
-                  {% endblock content %}
+                  <div class="row">
+                    {% block content %}
+                    {% endblock content %}
+                  </div>
 
                 </div>
                 <!-- /.container-fluid -->
