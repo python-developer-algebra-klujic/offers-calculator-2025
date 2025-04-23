@@ -2,29 +2,49 @@
 
 {% block page_title %}INGREDIENTS{% endblock page_title %}
 
-{% block page_content %}
-    <h1>Ingredients list page is working!</h1>
+{% block page_heading %}
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Ingredients</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Ingredients list</a>
+                    </div>
+                  {% endblock page_heading %}
 
-    <div class="container my-5">
-        {% if ingredients %}
-            <ul>
-                {% for ingredient in ingredients %}
-                    <li>{{ ingredient.name }} ({{ ingredient.code }})</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p> Ne postoji niti jedan sastojak u bazi </p>
-        {% endif %}
-    </div>
+                  {% block content %}
 
-    <div class="container my-5">
-            <ul>
-                {% for ingredient in ingredients %}
-                    <li>{{ ingredient.name }} ({{ ingredient.code }})</li>
-                {% empty %}
-                    <p> Ne postoji niti jedan sastojak u bazi </p>
-                {% endfor %}
-            </ul>
-    </div>
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Ingredients</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Code</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ingredient in ingredients %}
+                                            <tr>
+                                                <td>{{ ingredient.name }}</td>
+                                                <td>{{ ingredient.code }}</td>
+                                            </tr>
+                                        {% empty %}
+                                            <tr>
+                                                <td>U bazi nema niti jedan sastojak</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
 
-{% endblock page_content %}
+                  {% endblock content %}
