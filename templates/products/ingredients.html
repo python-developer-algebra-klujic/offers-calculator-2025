@@ -1,5 +1,6 @@
-{% extends 'base/base.html' %} {% block page_title %}INGREDIENTS{% endblock
-page_title %} {% block page_heading %}
+{% extends 'base/base.html' %} {% block page_title %}INGREDIENTS{% endblock page_title %} 
+
+{% block page_heading %}
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 	<h1 class="h3 mb-0 text-gray-800">Ingredients</h1>
@@ -9,10 +10,9 @@ page_title %} {% block page_heading %}
 		><i class="fas fa-download fa-sm text-white-50"></i> Ingredients list</a
 	>
 </div>
-{% endblock page_heading %} {% block content %}
+{% endblock page_heading %} 
 
-<!-- Content Row -->
-<div class="row">
+{% block content %}
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
@@ -47,6 +47,5 @@ page_title %} {% block page_heading %}
 			</div>
 		</div>
 	</div>
-</div>
 
 {% endblock content %}
