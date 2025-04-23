@@ -4,4 +4,27 @@
 
 {% block page_content %}
     <h1>Ingredients list page is working!</h1>
+
+    <div class="container my-5">
+        {% if ingredients %}
+            <ul>
+                {% for ingredient in ingredients %}
+                    <li>{{ ingredient.name }} ({{ ingredient.code }})</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p> Ne postoji niti jedan sastojak u bazi </p>
+        {% endif %}
+    </div>
+
+    <div class="container my-5">
+            <ul>
+                {% for ingredient in ingredients %}
+                    <li>{{ ingredient.name }} ({{ ingredient.code }})</li>
+                {% empty %}
+                    <p> Ne postoji niti jedan sastojak u bazi </p>
+                {% endfor %}
+            </ul>
+    </div>
+
 {% endblock page_content %}
