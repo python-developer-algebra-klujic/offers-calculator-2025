@@ -41,13 +41,29 @@
 					<tbody>
 						{% for ingredient in ingredients %}
 						<tr>
-							<td>{{ ingredient.name }}</td>
+							<td>
+								<a href="{% url 'products:ingredient_details' ingredient.pk %}"
+									class="text-decoration-none font-weight-bolder">
+									{{ ingredient.name }}
+								</a>
+							</td>
 							<td>{{ ingredient.code }}</td>
 							<td>{{ ingredient.description }}</td>
-							<td>{{ ingredient.base_price }} EUR</td>
-							<td>{{ ingredient.price_mod }} %</td>
-							<td>{{ ingredient.final_price }} EUR</td>
-							<td>Gumbi Info/Edit/Delete</td>
+							<td>{{ ingredient.base_price | floatformat:"2g" }} EUR</td>
+							<td>{{ ingredient.price_mod | floatformat:"2g"  }} %</td>
+							<td>{{ ingredient.final_price | floatformat:"2g"  }} EUR</td>
+							<td>
+								<a href="{% url 'products:ingredient_details' ingredient.pk %}"
+									class="text-decoration-none">
+									<i class="fas fa-info-circle text-info"></i>
+								</a>
+								<a href="#" class="text-decoration-none">
+									<i class="fas fa-edit text-primary"></i>
+								</a>
+								<a href="#" class="text-decoration-none">
+									<i class="fas fa-trash-alt text-danger"></i>
+								</a>
+							</td>
 						</tr>
 						{% empty %}
 						<tr>
