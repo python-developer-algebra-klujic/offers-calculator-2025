@@ -1,4 +1,6 @@
-{% extends 'base/base.html' %} {% block page_title %}INGREDIENTS{% endblock page_title %} 
+{% extends 'base/base.html' %} 
+
+{% block page_title %}INGREDIENTS{% endblock page_title %} 
 
 {% block page_heading %}
 <!-- Page Heading -->
@@ -10,7 +12,7 @@
 		><i class="fas fa-download fa-sm text-white-50"></i> Ingredients list</a
 	>
 </div>
-{% endblock page_heading %} 
+{% endblock page_heading %}
 
 {% block content %}
 	<!-- DataTales Example -->
@@ -29,6 +31,11 @@
 						<tr>
 							<th>Name</th>
 							<th>Code</th>
+							<th>Description</th>
+							<th>Base price</th>
+							<th>Price modificator</th>
+							<th>Final price</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -36,6 +43,11 @@
 						<tr>
 							<td>{{ ingredient.name }}</td>
 							<td>{{ ingredient.code }}</td>
+							<td>{{ ingredient.description }}</td>
+							<td>{{ ingredient.base_price }} EUR</td>
+							<td>{{ ingredient.price_mod }} %</td>
+							<td>{{ ingredient.final_price }} EUR</td>
+							<td>Gumbi Info/Edit/Delete</td>
 						</tr>
 						{% empty %}
 						<tr>
