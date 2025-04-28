@@ -23,6 +23,26 @@ def ingredient_details(request, pk):
                   {'ingredient': ingredient})
 
 
+def ingredient_edit(request, pk):
+    ingredient = get_object_or_404(Ingredient, pk=pk)
+
+    if request.method == 'POST':
+        ingredient = Ingredient.objects.create(
+            name = request.POST.get('name'),
+            code = request.POST.get('code'),
+            description = request.POST.get('description'),
+            base_price = request.POST.get('base_price') or 1,
+            price_mod = request.POST.get('price_mod') or 1,
+            final_price = request.POST.get('final_price') or 1
+        )
+        ingredient.save()
+
+        return redirect('products:ingredients_list')
+
+    return render(request, 'products/ingredient-edit-form.html',
+                  {'ingredient': ingredient})
+
+
 def ingredient_add(request):
     if request.method == 'POST':
         ingredient = Ingredient.objects.create(
