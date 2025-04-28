@@ -17,3 +17,8 @@ def ingredient_details(request, pk):
     return render(request,
                   'products/ingredient-details.html',
                   {'ingredient': ingredient})
+
+
+def ingredient_add(request):
+
+    return render(request, 'products/ingredient-form.html')
