@@ -14,7 +14,9 @@
 
 <div class="row">
   <div class="col-md-8">
-    <form class="row">
+    <form class="row" method="POST">
+      {% csrf_token %}
+
         <div class="col-md-12 mb-3">
           <label for="name" class="form-label">Ingredient name</label>
           <input
@@ -46,6 +48,7 @@
             class="form-control"
             id="base_price"
             name="base_price"
+            step="0.001"
             placeholder="Enter ingredient base price" />
         </div>
         <div class="col-md-12 mb-3">
@@ -55,6 +58,7 @@
             class="form-control"
             id="price_mod"
             name="price_mod"
+            step="0.001"
             placeholder="Enter ingredient price modification" />
         </div>
         <div class="col-md-12 mb-3">
@@ -64,9 +68,10 @@
             class="form-control"
             id="final_price"
             name="final_price"
+            step="0.001"
             placeholder="Enter ingredient final price" />
         </div>
-    
+
         <div class="col-12">
           <button type="submit" class="btn btn-primary">Save</button>
         </div>
