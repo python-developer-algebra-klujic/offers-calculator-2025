@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render, get_object_or_404
 
@@ -9,7 +8,7 @@ from .models import Ingredient
 def ingredients_list(request):
     # Dohvat podataka iz baze
     ingredients = Ingredient.objects.all()
-    paginator = Paginator(ingredients, 10)
+    paginator = Paginator(ingredients, 5)
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
