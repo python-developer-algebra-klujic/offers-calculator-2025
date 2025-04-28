@@ -53,7 +53,7 @@
             id="base_price"
             name="base_price"
             step="0.001"
-            value="{{ ingredient.base_price }}"
+            value="{{ ingredient.base_price | stringformat:'g' }}"
             placeholder="Enter ingredient base price" />
         </div>
         <div class="col-md-12 mb-3">
@@ -64,7 +64,7 @@
             id="price_mod"
             name="price_mod"
             step="0.001"
-            value="{{ ingredient.price_mod }}"
+            value="{{ ingredient.price_mod | stringformat:'g' }}"
             placeholder="Enter ingredient price modification" />
         </div>
         <div class="col-md-12 mb-3">
@@ -75,7 +75,7 @@
             id="final_price"
             name="final_price"
             step="0.001"
-            value="{{ ingredient.final_price }}"
+            value="{{ ingredient.final_price | stringformat:'g' }}"
             placeholder="Enter ingredient final price" />
         </div>
 
