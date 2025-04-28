@@ -57,7 +57,7 @@ CSV_TEXT = """\
 50,OLED Display,OLE-050,0.96-inch OLED display,6,1.1,6.6
 """
 
-def ingredients_db_seed():
+def ingredients_db_seed(request):
     csv_reader = csv.reader(CSV_TEXT.strip().splitlines())
     ingredients_list = []
 

@@ -1,14 +1,19 @@
+from django.http import HttpResponse
+from django.core.paginator import Paginator
 from django.shortcuts import redirect, render, get_object_or_404
+
+from .models import ingredients_db_seed
 from .models import Ingredient
 
 # Create your views here.
 def ingredients_list(request):
     # Dohvat podataka iz baze
     ingredients = Ingredient.objects.all()
+    paginator = Paginator(ingredients, 10)
 
-    return render(request,
-                  'products/ingredients.html',
-                  {'ingredients': ingredients})
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'products/ingredients.html', {"page_obj": page_obj})
 
 
 def ingredient_details(request, pk):
@@ -34,3 +39,11 @@ def ingredient_add(request):
         return redirect('products:ingredients_list')
 
     return render(request, 'products/ingredient-form.html')
+
+
+def ingredients_seeder(request):
+    # seed database
+    if request.method.GET:
+        ingredients_db_seed()
+
+    return redirect('products:ingredients_list')

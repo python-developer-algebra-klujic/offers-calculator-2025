@@ -6,11 +6,18 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 	<h1 class="h4 mb-0 text-gray-800">Ingredients</h1>
-	<a
-            href="{% url 'products:ingredient_add' %}"
-            class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-            ><i class="fas fa-plus fa-sm text-white-50"></i> Add </a
-        >
+	<div>
+		<a
+				href="{% url 'products:ingredient_add' %}"
+				class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+				><i class="fas fa-plus fa-sm text-white-50"></i> Add </a
+			>
+		<a
+				href="{% url 'products:db_seed' %}"
+				class="d-none d-sm-inline-block text-black-50 btn btn-sm btn-warning shadow-sm"
+				><i class="fas fa-database fa-sm text-black-50"></i> Db seed </a
+			>
+	</div>
 </div>
 {% endblock page_heading %}
 
@@ -39,7 +46,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						{% for ingredient in ingredients %}
+						{% for ingredient in page_obj %}
 						<tr>
 							<td>
 								<a href="{% url 'products:ingredient_details' ingredient.pk %}"
@@ -70,6 +77,23 @@
 							<td>U bazi nema niti jedan sastojak</td>
 						</tr>
 						{% endfor %}
+						<div class="pagination">
+							<span class="step-links">
+								{% if page_obj.has_previous %}
+									<a href="?page=1">&laquo; first</a>
+									<a href="?page={{ page_obj.previous_page_number }}">previous</a>
+								{% endif %}
+
+								<span class="current">
+									Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+								</span>
+
+								{% if page_obj.has_next %}
+									<a href="?page={{ page_obj.next_page_number }}">next</a>
+									<a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+								{% endif %}
+							</span>
+						</div>
 					</tbody>
 				</table>
 			</div>
