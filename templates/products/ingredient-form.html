@@ -12,62 +12,67 @@
 </div>
 {% endblock page_heading %} {% block content %}
 
-<form class="row">
-		<div class="col-md-12 mb-3">
-			<label for="name" class="form-label">Ingredient name</label>
-			<input
-				type="text"
-				class="form-control"
-				id="name"
-				name="name"
-				placeholder="Enter ingredient name" />
-		</div>
-		<div class="col-md-12 mb-3">
-			<label for="code" class="form-label">Ingredient code</label>
-			<input
-				type="text"
-				class="form-control"
-				id="code"
-				name="code"
-				placeholder="Enter ingredient code" />
-		</div>
-    <div class="col-md-12 mb-3">
-			<label for="description" class="form-label">Ingredient description</label>
-        <textarea class="form-control"
-                  name="description"
-                  id="description" rows="3"></textarea>
-		</div>
-    <div class="col-md-12 mb-3">
-			<label for="base_price" class="form-label">Ingredient base price</label>
-			<input
-				type="number"
-				class="form-control"
-				id="base_price"
-				name="base_price"
-				placeholder="Enter ingredient base price" />
-		</div>
-    <div class="col-md-12 mb-3">
-			<label for="price_mod" class="form-label">Ingredient price mod</label>
-			<input
-				type="number"
-				class="form-control"
-				id="price_mod"
-				name="price_mod"
-				placeholder="Enter ingredient price modification" />
-		</div>
-    <div class="col-md-12 mb-3">
-			<label for="final_price" class="form-label">Ingredient final price</label>
-			<input
-				type="number"
-				class="form-control"
-				id="final_price"
-				name="final_price"
-				placeholder="Enter ingredient final price" />
-		</div>
+<div class="row">
+  <div class="col-md-8">
+    <form class="row">
+        <div class="col-md-12 mb-3">
+          <label for="name" class="form-label">Ingredient name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter ingredient name" />
+        </div>
+        <div class="col-md-12 mb-3">
+          <label for="code" class="form-label">Ingredient code</label>
+          <input
+            type="text"
+            class="form-control"
+            id="code"
+            name="code"
+            placeholder="Enter ingredient code" />
+        </div>
+        <div class="col-md-12 mb-3">
+          <label for="description" class="form-label">Ingredient description</label>
+            <textarea class="form-control"
+                      name="description"
+                      id="description" rows="3"></textarea>
+        </div>
+        <div class="col-md-12 mb-3">
+          <label for="base_price" class="form-label">Ingredient base price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="base_price"
+            name="base_price"
+            placeholder="Enter ingredient base price" />
+        </div>
+        <div class="col-md-12 mb-3">
+          <label for="price_mod" class="form-label">Ingredient price mod</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price_mod"
+            name="price_mod"
+            placeholder="Enter ingredient price modification" />
+        </div>
+        <div class="col-md-12 mb-3">
+          <label for="final_price" class="form-label">Ingredient final price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="final_price"
+            name="final_price"
+            placeholder="Enter ingredient final price" />
+        </div>
+    
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+  </div>
+</div>
 
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Save</button>
-    </div>
-</form>
 
 {% endblock content %}
