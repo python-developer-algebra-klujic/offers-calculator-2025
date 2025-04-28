@@ -1,6 +1,8 @@
 
 import csv
 
+from .ingredients import Ingredient
+
 
 CSV_TEXT = """\
 1,Plastic Resin,PLR-001,High-density polyethylene,2.5,1.02,2.55
@@ -56,4 +58,25 @@ CSV_TEXT = """\
 """
 
 def ingredients_db_seed():
-    csv_reader = csv.reader(CSV_TEXT.strip())
+    csv_reader = csv.reader(CSV_TEXT.strip().splitlines())
+    ingredients_list = []
+
+    for (_,
+         name,
+         code,
+         description,
+         base_price,
+         price_mod,
+         final_price
+    ) in csv_reader:
+        ingredients_list.append(
+            Ingredient(
+                name=name,
+                code=code,
+                description=description,
+                base_price=base_price,
+                price_mod=price_mod,
+                final_price=final_price
+            )
+        )
+    Ingredient.objects.bulk_create(ingredients_list)
