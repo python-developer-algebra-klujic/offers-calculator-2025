@@ -43,6 +43,7 @@
 							<th>Fixed costs</th>
 							<th>Price modificator</th>
 							<th>Final price</th>
+							<th>Ingredients</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -50,7 +51,7 @@
 						{% for product in page_obj %}
 						<tr>
 							<td>
-								<a href="{% url 'products:home' %}"
+								<a href="{% url 'products:product_details' product.pk %}"
 									class="text-decoration-none font-weight-bolder">
 									{{ product.name }}
 								</a>
@@ -62,7 +63,13 @@
 							<td>{{ product.price_mod | floatformat:"2g"  }} %</td>
 							<td>{{ product.final_price | floatformat:"2g"  }} EUR</td>
 							<td>
-								<a href="{% url 'products:home' %}"
+                                <span>Ingredients</span>
+                                {% comment %} {% for ingredient in product.ingredients %}
+                                    {{ ingredient.name }}
+                                {% endfor %} {% endcomment %}
+                            </td>
+							<td>
+								<a href="{% url 'products:product_details' product.pk %}"
 									class="text-decoration-none">
 									<i class="fas fa-info-circle text-info"></i>
 								</a>

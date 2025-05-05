@@ -6,12 +6,20 @@ from ..models import Product, Ingredient
 
 def products_list(request):
     # Dohvat podataka iz baze
-    products = Product.objects.all()
+    products = Product.objects.prefetch_related('ingredients').all()
     paginator = Paginator(products, 5)
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     return render(request, 'products/products.html', {"page_obj": page_obj})
+
+
+def product_details(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+
+    return render(request,
+                  'products/product-details.html',
+                  {'product': product})
 
 
 def products_add(request):
