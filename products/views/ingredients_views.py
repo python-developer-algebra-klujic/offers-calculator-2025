@@ -1,8 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render, get_object_or_404
 
-from .models import ingredients_db_seed
-from .models import Ingredient
+from ..models import ingredients_db_seed, Ingredient
+
 
 # Create your views here.
 def ingredients_list(request):

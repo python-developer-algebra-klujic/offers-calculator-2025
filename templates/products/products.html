@@ -1,11 +1,11 @@
 {% extends 'base/base.html' %}
 
-{% block page_title %}INGREDIENTS{% endblock page_title %}
+{% block page_title %}PRODUCTS{% endblock page_title %}
 
 {% block page_heading %}
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-	<h1 class="h4 mb-0 text-gray-800">Ingredients</h1>
+	<h1 class="h4 mb-0 text-gray-800">Products</h1>
 	<div>
 		<a
 				href="{% url 'products:ingredient_add' %}"
@@ -25,7 +25,7 @@
 	<!-- DataTables Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">Ingredients</h6>
+			<h6 class="m-0 font-weight-bold text-primary">Products</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -40,31 +40,33 @@
 							<th>Code</th>
 							<th>Description</th>
 							<th>Base price</th>
+							<th>Fixed costs</th>
 							<th>Price modificator</th>
 							<th>Final price</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						{% for ingredient in page_obj %}
+						{% for product in page_obj %}
 						<tr>
 							<td>
-								<a href="{% url 'products:ingredient_details' ingredient.pk %}"
+								<a href="{% url 'products:home' %}"
 									class="text-decoration-none font-weight-bolder">
-									{{ ingredient.name }}
+									{{ product.name }}
 								</a>
 							</td>
-							<td>{{ ingredient.code }}</td>
-							<td>{{ ingredient.description }}</td>
-							<td>{{ ingredient.base_price | floatformat:"2g" }} EUR</td>
-							<td>{{ ingredient.price_mod | floatformat:"2g"  }} %</td>
-							<td>{{ ingredient.final_price | floatformat:"2g"  }} EUR</td>
+							<td>{{ product.code }}</td>
+							<td>{{ product.description }}</td>
+							<td>{{ product.base_price | floatformat:"2g" }} EUR</td>
+							<td>{{ product.fixed_costs | floatformat:"2g" }} EUR</td>
+							<td>{{ product.price_mod | floatformat:"2g"  }} %</td>
+							<td>{{ product.final_price | floatformat:"2g"  }} EUR</td>
 							<td>
-								<a href="{% url 'products:ingredient_details' ingredient.pk %}"
+								<a href="{% url 'products:home' %}"
 									class="text-decoration-none">
 									<i class="fas fa-info-circle text-info"></i>
 								</a>
-								<a href="{% url 'products:ingredient_edit' ingredient.pk %}"
+								<a href="{% url 'products:home' %}"
 								class="text-decoration-none">
 									<i class="fas fa-edit text-primary"></i>
 								</a>
@@ -75,7 +77,7 @@
 						</tr>
 						{% empty %}
 						<tr>
-							<td>U bazi nema niti jedan sastojak</td>
+							<td>U bazi nema niti jedan proizvod</td>
 						</tr>
 						{% endfor %}
 					</tbody>
