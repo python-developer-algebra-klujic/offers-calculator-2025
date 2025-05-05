@@ -92,11 +92,27 @@
                     class="form-control"
                     name="ingredients"
                     id="ingredients">
-                    {% for ingredient in ingredients %}
-                        <option value="ingredient.id">{{ ingredient.name }}</option>
+                    {% for ingredient in ingredients_list %}
+                        <option value="{{ ingredient.id }}">
+                            {{ ingredient.name }} ({{ ingredient.final_price | floatformat:"2g"  }} EUR)
+                        </option>
                     {% endfor %}
             </select>
-          </div>
+        </div>
+
+        <div class="col-md-12 mb-3 form-group">
+            <label for="ingredients_from_products">Product's as ingredients</label>
+            <select multiple
+                    class="form-control"
+                    name="ingredients_from_products"
+                    id="ingredients_from_products">
+                    {% for product_as_ingredient in ingredients_from_products_list %}
+                        <option value="{{ product_as_ingredient.id }}">
+                            {{ product_as_ingredient.name }} ({{ product_as_ingredient.final_price | floatformat:"2g"  }} EUR)
+                        </option>
+                    {% endfor %}
+            </select>
+        </div>
 
         <div class="col-12">
           <button type="submit" class="btn btn-primary">Save</button>
