@@ -1,17 +1,12 @@
-from django.core.paginator import Paginator
+from django.views.generic import ListView
 from django.shortcuts import redirect, render, get_object_or_404
 
 from ..models import Product, Ingredient
 
 
-def products_list(request):
-    # Dohvat podataka iz baze
-    products = Product.objects.prefetch_related('ingredients').all()
-    paginator = Paginator(products, 5)
-
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'products/products.html', {"page_obj": page_obj})
+class ProductListView(ListView):
+    model = Product
+    paginate_by = 5
 
 
 def product_details(request, pk):

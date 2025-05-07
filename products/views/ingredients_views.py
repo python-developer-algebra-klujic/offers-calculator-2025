@@ -1,18 +1,17 @@
-from django.core.paginator import Paginator
+from django.views.generic import ListView
 from django.shortcuts import redirect, render, get_object_or_404
 
 from ..models import ingredients_db_seed, Ingredient
 
 
-# Create your views here.
-def ingredients_list(request):
-    # Dohvat podataka iz baze
-    ingredients = Ingredient.objects.all()
-    paginator = Paginator(ingredients, 5)
+class IngredientListView(ListView):
+    model = Ingredient
+    paginate_by = 5
 
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'products/ingredients.html', {"page_obj": page_obj})
+
+
+
+
 
 
 def ingredient_details(request, pk):

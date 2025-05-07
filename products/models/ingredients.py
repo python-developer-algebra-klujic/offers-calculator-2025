@@ -34,5 +34,9 @@ class Ingredient(models.Model):
                                      null=True,
                                      blank=True)
 
+    class Meta:
+        # Sortiraj prvo po nazivu pa onda po kodu, ali kod silazno
+        ordering = ['name', '-code']
+
     def __str__(self):
         return f'Ingredient: {self.name} ({self.code})'
