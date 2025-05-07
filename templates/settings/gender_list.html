@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block page_title %}GENDERS{% endblock page_title %}
+
+{% block page_heading %}
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+	<h1 class="h4 mb-0 text-gray-800">Genders</h1>
+	<div>
+		<a
+				href="{% url 'products:ingredient_add' %}"
+				class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+				><i class="fas fa-plus fa-sm text-white-50"></i> Add </a
+			>
+	</div>
+</div>
+{% endblock page_heading %}
+
+{% block content %}
+<div>
+    <ul>
+        {% for gender in object_list %}
+            <li>{{ gender.name }}</li>
+        {% empty %}
+            <li>Nema niti jedan spol dodan u bazu</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
