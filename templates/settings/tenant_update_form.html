@@ -1,12 +1,12 @@
 {% extends 'base/base.html' %}
 {% load crispy_forms_tags %}
 
-{% block page_title %}CREATE TENANT{% endblock page_title %}
+{% block page_title %}UPDATE TENANT{% endblock page_title %}
 
 {% block page_heading %}
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-	<h1 class="h4 mb-0 text-gray-800">Create tenant</h1>
+	<h1 class="h4 mb-0 text-gray-800">Update tenant</h1>
 	<div>
 		<a
 			href="{% url 'settings:tenants' %}"
@@ -24,7 +24,7 @@
 	{{ form | crispy }}
 
 	<div class="col-12">
-		<button type="submit" class="btn btn-primary">Save</button>
+		<button type="submit" class="btn btn-primary">Save changes</button>
 	</div>
 </form>
 {% endblock content %}

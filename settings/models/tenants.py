@@ -11,7 +11,6 @@ class Tenant(models.Model):
                               null=True,
                               blank=True)
     street_and_number = models.CharField(max_length=250,
-                                         help_text='Tenant address street with number',
                                          null=True,
                                          blank=True)
     postal_number = models.CharField(max_length=50,
