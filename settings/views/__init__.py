@@ -1,4 +1,7 @@
-from .gender_views import GenderListView
+from .gender_views import (GenderListView,
+                           GenderCreateView,
+                           GenderUpdateView,
+                           GenderDeleteView)
 from .tenant_views import (TenantListView,
                            TenantCreateView,
                            TenantUpdateView,
