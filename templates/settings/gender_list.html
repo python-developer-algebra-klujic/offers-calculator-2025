@@ -26,8 +26,12 @@
 						{{ gender }}
 					</div>
 					<div class="d-flex justify-content-end col-4">
+						<a href="{% url 'settings:gender_details' gender.id %}"
+							class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm">
+							<i class="fas fa-info fa-sm text-white-50"></i> Info
+						</a>
 						<a href="{% url 'settings:gender_update' gender.id %}"
-							class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+							class="ml-1 d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
 							<i class="far fa-edit fa-sm text-white-50"></i> Edit
 						</a>
 						<a href="{% url 'settings:gender_delete' gender.id %}"

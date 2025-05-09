@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% block page_title %}GENDER{% endblock page_title %}
+
+{% block page_heading %}
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+	<h1 class="h4 mb-0 text-gray-800">Gender {{ object.name }}</h1>
+	<div>
+        <a href="{% url 'settings:gender_update' object.id %}"
+							class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+							<i class="far fa-edit fa-sm text-white-50"></i> Edit
+						</a>
+		<a
+			href="{% url 'settings:genders' %}"
+			class="ml-1 d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"
+			><i class="fas fa-arrow-left text-white-50"></i> Back to list
+		</a>
+	</div>
+</div>
+{% endblock page_heading %}
+
+{% block content %}
+
+	<div class="row">
+        <div class="col-12">
+            {{ object.name }}
+        </div>
+	</div>
+{% endblock content %}
+
+
+{% comment %}
+
+	{% for field in form %}
+		<div>
+			{{ field.label }}
+			{{ field }}
+		</div>
+	{% endfor %}
+
+{% endcomment %}

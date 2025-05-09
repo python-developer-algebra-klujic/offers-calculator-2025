@@ -1,4 +1,5 @@
 from .gender_views import (GenderListView,
+                           GenderDetailView,
                            GenderCreateView,
                            GenderUpdateView,
                            GenderDeleteView)
